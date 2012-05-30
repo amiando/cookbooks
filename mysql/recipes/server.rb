@@ -71,9 +71,9 @@ end
 service "mysql" do
   service_name node['mysql']['service_name']
   if (platform?("ubuntu") && node.platform_version.to_f >= 10.04)
-    restart_command "restart mysql"
-    stop_command "stop mysql"
-    start_command "start mysql"
+    restart_command "service mysql restart"
+    stop_command "service mysql stop"
+    start_command "service mysql start"
   end
   supports :status => true, :restart => true, :reload => true
   action :nothing
